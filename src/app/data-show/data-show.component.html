@@ -1,0 +1,24 @@
+<!-- <h1 class=" " >{{ title }}</h1>
+<div></div>
+<div class="container mt-5 d-flex justify-content-between flex-wrap">
+  <div class="blocks w-25 p-4 text-center " >
+    <div>Title: {{firstcourse.title}}</div>
+    <div>Description : {{firstcourse.description}}</div>
+    <div><img src="{{firstcourse.image}}" alt="Angulr Logo" width="100px" height="100px"></div>
+  </div>
+  <div class="blocks w-25 p-4 text-center " >
+    <div>Title: {{secondcourse.title}}</div>
+    <div>Description : {{secondcourse.description}}</div>
+    <div><img src="{{secondcourse.image}}" alt="Angulr Logo" width="100px" height="100px"></div>
+  </div>
+</div> -->
+<h1 class=" " >{{ title }}</h1>
+<div></div>
+<div class="container mt-5 d-flex justify-content-between flex-wrap">
+  <div class="blocks w-25 p-4 text-center " *ngFor="let course of coursedata;index as i;">
+    <div >Title: {{course.title}} <span>{{i+1}}</span></div>
+    <div>Description : {{course.description}}</div>
+    <div *ngIf="course.image"><img src="{{course.image}}" alt="Angulr Logo" width="100px" height="100px"></div>
+    <button (click)="viewcourse()">View</button>
+  </div>
+</div>

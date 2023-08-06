@@ -14,12 +14,14 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {NgIf} from '@angular/common';
 import { ShowvaluesComponent } from './showvalues/showvalues.component';
+import { DataShowComponent } from './data-show/data-show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputmatComponent,
-    ShowvaluesComponent
+    ShowvaluesComponent,
+    DataShowComponent
   ],
   imports: [
     BrowserModule,
