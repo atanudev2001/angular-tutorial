@@ -19,6 +19,9 @@ export class DataShowComponent implements OnInit{
   ngOnInit(): void {
 
   }
+  // isvisible(){
+  //   return  this.coursedata && this.coursedata.image;
+  // }
   viewcourse(){}
 
   // firstcourse = datas[0];
