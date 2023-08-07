@@ -11,27 +11,43 @@
     <div>Description : {{secondcourse.description}}</div>
     <div><img src="{{secondcourse.image}}" alt="Angulr Logo" width="100px" height="100px"></div>
   </div>
-</div>
+</div>-->
+
+<!----ng class---->
+<!--
 [ngClass]="{advanced : course.category == 'advanced'}"
 [ngClass]="course.category == 'advanced' ? 'advanced' : 'beginner'"
  -->
+<!-- pipes in angular-->
+ <!-- <div>start Date :{{startdate | date:'MMM dd , yyyy'}}</div>
+<div>price number pipe: {{price | number:'3.1-6'}} </div>
+<div>Currency Pipe: {{price | currency:'EUR'}} </div>
+<div>Currency Pipe: {{price | currency:'GBP'}} </div>
+<div>Currency Pipe: {{price | currency:'USD'}} </div>
+<div>percentage pipe: {{rate | percent}}</div>
+
+<div *ngFor="let pair of firstcourse | keyvalue">
+{{pair.key+ ":" +pair.value}}
+</div>
+-->
 <h1 class=" " >{{ title }}</h1>
-<div></div>
 <div class="container mt-5 d-flex justify-content-between flex-wrap">
   <div class=" blocks p-4 text-center mb-3" *ngFor="let course of coursedata;index as i;"
   [ngClass]="course.category == 'advanced' ? 'advanced' : course.category == 'intermediate'? 'intermediate':'beginner'" >
-  <div class="course-category" [ngSwitch]="course.category">
-    <div class="cat-tag" *ngSwitchCase="'beginner'">Beginner</div>
-    <div class="cat-tag" *ngSwitchCase="'advanced'">Advanced</div>
-    <div class="cat-tag" *ngSwitchCase="'intermediate'">Intermediate</div>
-    <div class="cat-tag" *ngSwitchCase="''">All Levels</div>
-  </div>
-    <div [ngStyle]="classstyle()">Title:  {{course.title}}<!--<span>{{i+1}}</span>--></div>
-    <div>Description : {{course.description}}</div>
-    <div *ngIf="course.image; else noimage"><img src="{{course.image}}" alt="Angulr Logo" width="100px" height="100px"></div>
-    <ng-template #noimage><p>No Image is avaliable</p></ng-template>
+
+    <ng-container class="course-category" [ngSwitch]="course.category">
+      <div class="cat-tag" *ngSwitchCase="'beginner'">Beginner</div>
+      <div class="cat-tag" *ngSwitchCase="'advanced'">Advanced</div>
+      <div class="cat-tag" *ngSwitchCase="'intermediate'">Intermediate</div>
+      <div class="cat-tag" *ngSwitchCase="''">All Levels</div>
+    </ng-container>
+
+      <div [ngStyle]="classstyle()">Title:  {{course.title}}<!--<span>{{i+1}}</span>--></div>
+      <div>Description : {{course.description}}</div>
+      <div *ngIf="course.image; else noimage"><img src="{{course.image}}" alt="Angulr Logo" width="100px" height="100px"></div>
+      <ng-template #noimage><p>No Image is avaliable</p></ng-template>
 
 
-    <button (click)="viewcourse()">View</button>
+      <button (click)="viewcourse()">View</button>
   </div>
 </div>

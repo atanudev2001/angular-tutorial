@@ -10,10 +10,9 @@ import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 export class DataShowComponent implements OnInit{
   title = 'Data from array';
 
-  // @Input()
-  // courses:datas;
 
-  coursedata = datas;
+  coursedata=datas;
+
 
 
   constructor(){ }
@@ -22,22 +21,20 @@ export class DataShowComponent implements OnInit{
 
   viewcourse(){}
 
-  // classcall(){
-  //   if(this.coursedata.category == 'advanced'){
-  //     return 'beginner';
-  //   }
-  //   else{
-  //     return'beginner';
-  //   }
-  // }
+
   classstyle(){
     return{
       'text-decoration':'underline'
     };
   }
 
+  startdate = new Date(2023,7,3 )
+  price = 9.99;
+  rate = 0.454;
 
-  // firstcourse = datas[0];
+
+
+  firstcourse = datas[0];
   // secondcourse =datas[1];
 
 
