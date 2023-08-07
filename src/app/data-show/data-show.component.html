@@ -11,16 +11,27 @@
     <div>Description : {{secondcourse.description}}</div>
     <div><img src="{{secondcourse.image}}" alt="Angulr Logo" width="100px" height="100px"></div>
   </div>
-</div> -->
+</div>
+[ngClass]="{advanced : course.category == 'advanced'}"
+[ngClass]="course.category == 'advanced' ? 'advanced' : 'beginner'"
+ -->
 <h1 class=" " >{{ title }}</h1>
 <div></div>
 <div class="container mt-5 d-flex justify-content-between flex-wrap">
-  <div class="blocks w-25 p-4 text-center " *ngFor="let course of coursedata;index as i;">
-    <div >Title: {{course.title}} <!--<span>{{i+1}}</span>--></div>
+  <div class=" blocks p-4 text-center mb-3" *ngFor="let course of coursedata;index as i;"
+  [ngClass]="course.category == 'advanced' ? 'advanced' : course.category == 'intermediate'? 'intermediate':'beginner'" >
+  <div class="course-category" [ngSwitch]="course.category">
+    <div class="cat-tag" *ngSwitchCase="'beginner'">Beginner</div>
+    <div class="cat-tag" *ngSwitchCase="'advanced'">Advanced</div>
+    <div class="cat-tag" *ngSwitchCase="'intermediate'">Intermediate</div>
+    <div class="cat-tag" *ngSwitchCase="''">All Levels</div>
+  </div>
+    <div [ngStyle]="classstyle()">Title:  {{course.title}}<!--<span>{{i+1}}</span>--></div>
     <div>Description : {{course.description}}</div>
-    <!-- <div *ngIf="course.image; else noimage"><img src="{{course.image}}" alt="Angulr Logo" width="100px" height="100px"></div> -->
     <div *ngIf="course.image; else noimage"><img src="{{course.image}}" alt="Angulr Logo" width="100px" height="100px"></div>
     <ng-template #noimage><p>No Image is avaliable</p></ng-template>
+
+
     <button (click)="viewcourse()">View</button>
   </div>
 </div>

@@ -1,5 +1,6 @@
+import { datas } from './../data-dt';
 import { Component, Input, OnInit, EventEmitter } from '@angular/core';
-import { datas } from '../data-dt';
+
 
 @Component({
   selector: 'app-data-show',
@@ -9,20 +10,32 @@ import { datas } from '../data-dt';
 export class DataShowComponent implements OnInit{
   title = 'Data from array';
 
+  // @Input()
+  // courses:datas;
+
   coursedata = datas;
 
 
-  constructor(){
+  constructor(){ }
 
-  }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-
-  }
-  // isvisible(){
-  //   return  this.coursedata && this.coursedata.image;
-  // }
   viewcourse(){}
+
+  // classcall(){
+  //   if(this.coursedata.category == 'advanced'){
+  //     return 'beginner';
+  //   }
+  //   else{
+  //     return'beginner';
+  //   }
+  // }
+  classstyle(){
+    return{
+      'text-decoration':'underline'
+    };
+  }
+
 
   // firstcourse = datas[0];
   // secondcourse =datas[1];
